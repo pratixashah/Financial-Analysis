@@ -79,7 +79,7 @@ with open(csvpath , 'r') as csvfile:
 
     # To write result into file
     # To set the path from new file
-    output_file = os.path.join(".", "Analysis", "PyBank_Analysis.csv")
+    output_file = os.path.join(".", "Analysis", "PyBank_Analysis.txt")
 
     with open(output_file, "w", newline='') as datafile:
         writer = csv.writer(datafile)
