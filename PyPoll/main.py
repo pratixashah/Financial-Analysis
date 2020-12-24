@@ -41,11 +41,14 @@ with open(csvpath) as csvfile:
             def_candidate_list[row[2]] = 1
 
 # To print Analysis
-print("\nElection Results")
-print("----------------------------")
-print(f"Total Votes: {vote_count}")
-print("----------------------------")
+output = (
+    f"\nElection Analysis"
+    f"\n---------------------------------------------"
+    f"\nTotal Votes: {vote_count}"
+    f"\n---------------------------------------------"
+)
 
+print(output)
 # To print all candidates with total number of votes resp.
 for candidate in def_candidate_list:
     print(f"{candidate}: {(def_candidate_list[candidate]/vote_count)*100:.3f}% ({def_candidate_list[candidate]})")
@@ -56,3 +59,15 @@ print("----------------------------")
 max_key = max(def_candidate_list, key=def_candidate_list.get)
 print(f"Winner: {max_key}")
 print("----------------------------")
+
+output_file = os.path.join(".", "Analysis", "PyPoll_Analysis.txt")
+
+with open(output_file, "w", newline='') as analysis_file:
+    analysis_file.write(output)
+    for candidate in def_candidate_list:
+        analysis_file.write(f"\n{candidate}: {(def_candidate_list[candidate]/vote_count)*100:.3f}% ({def_candidate_list[candidate]})")
+
+    analysis_file.write("\n----------------------------")
+
+    analysis_file.write(f"\nWinner: {max_key}")
+    analysis_file.write("\n----------------------------")
