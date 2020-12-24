@@ -59,35 +59,22 @@ with open(csvpath , 'r') as csvfile:
             greatest__decrease_profit_date = row[0]
             greatest__decrease_profit = profit_change
 
-    # To print Analysis
-    print("\nFinancial Analysis")
-    print("---------------------------------------------")
-    print(f"Total Months: {month_count}")
-    print(f"Total: ${net_total_amount}")
-    print(f"Average Change: ${round(float(total_profit_change/(month_count-1)),2)}")
-    print(f"Greatest Increase in Profits in: {greatest__increase_profit_date} (${greatest__increase_profit})")
-    print(f"Greatest Decrease in Profits in: {greatest__decrease_profit_date} (${greatest__decrease_profit})")
-    
-    # To Create dictionary with calculated data   
-    myDictionary = {
-        "Total Months": month_count,
-        "Total": net_total_amount,
-        "Average Change": round(float(total_profit_change/(month_count-1)),2),
-        "Greatest Increase in Profits": [greatest__increase_profit_date,greatest__increase_profit],
-        "Greatest Decrease in Profits": [greatest__decrease_profit_date,greatest__decrease_profit]
-    }
+# To print Analysis
+output = (
+f"\nFinancial Analysis\n"
+f"---------------------------------------------"
+f"\nTotal Months: {month_count}"
+f"\nTotal: {net_total_amount}"
+f"\nAverage Change: {round(total_profit_change/(month_count-1),2)}"
+f"\nGreatest Increase in Profits: {greatest__increase_profit_date} ({greatest__increase_profit})"
+f"\nGreatest Decrease in Profits: {greatest__decrease_profit_date} ({greatest__decrease_profit})"
+)
 
-    # To write result into file
-    # To set the path from new file
-    output_file = os.path.join(".", "Analysis", "PyBank_Analysis.txt")
+print(output)
 
-    with open(output_file, "w", newline='') as datafile:
-        writer = csv.writer(datafile)
+# To write result into file
+# To set the path from new file
+output_file = os.path.join(".", "Analysis", "PyBank_Analysis.txt")
 
-        writer.writerow(["Financial Analysis"])
-        writer.writerow(["---------------------------------------------"])
-        writer.writerow([f"Total Months: {myDictionary['Total Months']}"])
-        writer.writerow([f"Total: ${myDictionary['Total']}"])
-        writer.writerow([f"Average Change: ${myDictionary['Average Change']}"])
-        writer.writerow([f"Greatest Increase in Profits in: {myDictionary['Greatest Increase in Profits'][0]} (${myDictionary['Greatest Increase in Profits'][1]})"])
-        writer.writerow([f"Greatest Decrease in Profits in: {myDictionary['Greatest Decrease in Profits'][0]} (${myDictionary['Greatest Decrease in Profits'][1]})"])
+with open(output_file, "w", newline='') as analysis_file:
+    analysis_file.write(output)
