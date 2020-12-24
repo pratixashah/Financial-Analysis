@@ -48,7 +48,7 @@ print("----------------------------")
 
 # To print all candidates with total number of votes resp.
 for candidate in def_candidate_list:
-    print(f"{candidate} : {(def_candidate_list[candidate]/vote_count)*100:.3f}% ({def_candidate_list[candidate]})")
+    print(f"{candidate}: {(def_candidate_list[candidate]/vote_count)*100:.3f}% ({def_candidate_list[candidate]})")
 
 print("----------------------------")
 
