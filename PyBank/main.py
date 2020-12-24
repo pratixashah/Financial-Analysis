@@ -65,8 +65,8 @@ with open(csvpath , 'r') as csvfile:
     print(f"Total Months: {month_count}")
     print(f"Total: ${net_total_amount}")
     print(f"Average Change: ${round(float(total_profit_change/(month_count-1)),2)}")
-    print(f"Greatest Increase in Profits in {greatest__increase_profit_date} (${greatest__increase_profit})")
-    print(f"Greatest Decrease in Profits in {greatest__decrease_profit_date} (${greatest__decrease_profit})")
+    print(f"Greatest Increase in Profits in: {greatest__increase_profit_date} (${greatest__increase_profit})")
+    print(f"Greatest Decrease in Profits in: {greatest__decrease_profit_date} (${greatest__decrease_profit})")
     
     # To Create dictionary with calculated data   
     myDictionary = {
