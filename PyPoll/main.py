@@ -2,10 +2,10 @@ import os
 import csv
 
 # To get file path
-csvpath = os.path.join(".", "Resources","election_data.csv")
+file_path = os.path.join(".", "Resources","election_data.csv")
 
 # To open file to read
-with open(csvpath) as csvfile:
+with open(file_path) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     
     # To get Header
@@ -16,8 +16,8 @@ with open(csvpath) as csvfile:
     
     def_candidate_list ={}
     
-    candidate_list = []
-    candidate_count_list = []
+#     candidate_list = []
+#     candidate_count_list = []
 
     # To get first row
     first_row = next(csvreader)
@@ -34,7 +34,7 @@ with open(csvpath) as csvfile:
         # To get Total vote count
         vote_count += 1
         
-        # To get Candidates and its vote count 
+        # To get all Candidates and its vote count resp.
         if(row[2] in def_candidate_list):
             def_candidate_list[row[2]] += 1
         else:
@@ -49,6 +49,7 @@ output = (
 )
 
 print(output)
+
 # To print all candidates with total number of votes resp.
 for candidate in def_candidate_list:
     print(f"{candidate}: {(def_candidate_list[candidate]/vote_count)*100:.3f}% ({def_candidate_list[candidate]})")
@@ -57,6 +58,7 @@ print("----------------------------")
 
 # To print Winner who has max no. of votes
 max_key = max(def_candidate_list, key=def_candidate_list.get)
+
 print(f"Winner: {max_key}")
 print("----------------------------")
 
