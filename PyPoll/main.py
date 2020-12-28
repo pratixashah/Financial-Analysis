@@ -57,6 +57,7 @@ output += "\n----------------------------"
 # To print Analysis
 print(output)
 
+# To write result into file
 with open(output_file, "w", newline='') as analysis_file:
     analysis_file.write(output)
     
