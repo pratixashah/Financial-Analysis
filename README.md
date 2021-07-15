@@ -1,5 +1,13 @@
 # MyPython
- All about Python
+Python script for analyzing the financial records of company.
+
+## Resources:
+
+**1. Resource: Resources/budget_data.csv**
+
+**2. Script: main.py**
+
+**3. Analysis: Analysis/PyBank_Analysis.txt**
 
 It contains 2 Analysis reports:
 
